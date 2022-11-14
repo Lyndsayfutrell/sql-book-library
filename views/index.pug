@@ -23,5 +23,6 @@ block content
           td= book.author
           td= book.genre
           td= book.year
-  p.pagenation
-    a.button.number(href="") 1
+  .pagination
+    each page in pages
+      a.button.number(href="page" + page)= page

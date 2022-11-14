@@ -59,11 +59,11 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  console.log(err.status);
+  console.log(err.message);
   if(err.status === 404) {
     res.render('page-not-found')
   } else {
-    res.render('error');
+    res.render('error', errors = err);
   }
 });
 

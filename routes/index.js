@@ -18,14 +18,21 @@ function asyncHandler(cb){
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.redirect("/books")
+  res.redirect("/books/page1")
 });
 
-
 /* GET books */
-router.get('/books', asyncHandler(async (req, res, next) => {
-  const books = await Book.findAll({order:[["title"]]});
-  res.render('index', {books});
+router.get('/books/page:number', asyncHandler(async (req, res, next) => {
+  let currentPage = req.params.number;
+  let limit = 10;
+  let offset = 0 + (currentPage - 1) * limit;
+  const pageTotal = Math.ceil(((await Book.findAll({order:[["title"]]})).length) / 10);
+  const books = await Book.findAll({order:[["title"]], limit: limit, offset: offset,});
+  let pages = [];
+  for (i=1; i <= pageTotal; i++ ) {
+    pages += i;
+  }
+  res.render('index', {books, pages} );
 }));
 
 /* Create a new book */

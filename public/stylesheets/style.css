@@ -94,7 +94,7 @@ div.header{
   margin-left: 0;
 }
 
-p.pagenation {
+div.pagination {
   display: flex;
   justify-content: center;
   margin-left: 0;
@@ -102,7 +102,7 @@ p.pagenation {
 }
 
 a.button.number {
-  margin: auto;
+  margin: 5px;
 
 }
 
