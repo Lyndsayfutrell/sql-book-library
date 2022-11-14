@@ -137,6 +137,10 @@ router.get('/books/page:number/:search', asyncHandler(async (req ,res) => {
         [Op.like]: `%${value}%`
         }
       },
+      {year: {
+        [Op.like]: `%${value}%`
+        }
+      },
     ]
     }});
     let pageTotal = Math.ceil((total.length) /10);
@@ -157,6 +161,10 @@ router.get('/books/page:number/:search', asyncHandler(async (req ,res) => {
         }
       },
       {title: {
+        [Op.like]: `%${value}%`
+        }
+      },
+      {year: {
         [Op.like]: `%${value}%`
         }
       },
