@@ -2,8 +2,11 @@ extends layout
 
 block content
   h1 Books
-  p
+  .header
     a.button(href="/new") Create new Book
+    .container
+      input(type="text" name='search' id='search').search
+      input(type="submit" value="Search").search
   table
     thead 
       tr
@@ -20,3 +23,5 @@ block content
           td= book.author
           td= book.genre
           td= book.year
+  p.pagenation
+    a.button.number(href="") 1
