@@ -41,12 +41,12 @@ router.get('/books/page:number', asyncHandler(async (req, res, next) => {
 }));
 
 /* Create a new book */
-router.get('/new', (req, res) => {
+router.get('/books/new', (req, res) => {
   res.render("new-book", { book: {}, title: "New Book" });
 });
 
 /* POST create book. */
-router.post('/', asyncHandler(async (req, res) => {
+router.post('/books/new', asyncHandler(async (req, res) => {
   let book;
   try {
     book = await Book.create(req.body);
