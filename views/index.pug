@@ -5,6 +5,7 @@ block content
   .header
     a.button(href="/new") Create new Book
     .container
+    form(action="/books/page:number/:search", method="post")
       input(type="text" name='search' id='search').search
       input(type="submit" value="Search").search
   table
@@ -24,5 +25,9 @@ block content
           td= book.genre
           td= book.year
   .pagination
-    each page in pages
-      a.button.number(href="page" + page)= page
+    if value
+      each page in pages
+        a.button.number(href="/books/page" + page + "/" + value)= page
+    else  
+      each page in pages
+        a.button.number(href="page" + page)= page
