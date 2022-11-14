@@ -167,7 +167,7 @@ router.get('/books/page:number/:search', asyncHandler(async (req ,res) => {
   
 }));
 
-
+// Search post
 router.post('/books/page:number/:search', asyncHandler(async (req ,res) => {
   search = req.body.search;
   res.redirect("/books/page"+ 1 + "/" + search);
