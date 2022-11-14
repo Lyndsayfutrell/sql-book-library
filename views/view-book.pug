@@ -1,0 +1,9 @@
+extends layout
+block content 
+    h1= book.title
+    p= `Author: ${book.author}`
+    p= `Genre: ${book.genre}`
+    p= `Year Published: ${book.year}`
+    a(href="../") &larr; Back 
+    | | 
+    a(href="/books/" + book.id + "/update") Update Book 
