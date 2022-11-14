@@ -3,7 +3,7 @@ extends layout
 block content
   h1 Books
   .header
-    a.button(href="/new") Create new Book
+    a.button(href="/books/new") Create new Book
     .container
     form(action="/books/page:number/:search", method="post")
       input(type="text" name='search' id='search').search
